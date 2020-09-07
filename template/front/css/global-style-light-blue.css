@@ -14318,7 +14318,7 @@ body {
   background-repeat: repeat; }
 
 .same-height {
-  min-height: 400px; }
+ /* min-height: 400px;*/ }
 
 .page-title {
   position: relative; }

@@ -364,6 +364,89 @@ class Crud_model extends CI_Model
         return $return;
     }
 
+    function select_html2($from, $name, $field, $type, $class, $id, $e_match = '', $condition = '', $c_match = '', $onchange = '',$condition_type='single')
+    {
+        $return = '';
+        $other  = '';
+        $multi  = 'no';
+        $phrase = 'Choose a ' . $name;
+        if ($class == 'demo-cs-multiselect') {
+            $other = 'multiple';
+            $name  = $name . '[]';
+            if ($type == 'edit') {
+                $e_match = json_decode($e_match);
+                if ($e_match == NULL) {
+                    $e_match = array();
+                }
+                $multi = 'yes';
+            }
+        }
+        $return = '<select name="' . $name . '" onChange="' . $onchange . '(this.value,this)" class="' . $class . '" id ="'.$id.'" ' . $other . '  data-placeholder="' . $phrase . '" tabindex="2" data-hide-disabled="true" >';
+        if (!is_array($from)) {
+            if ($condition == '') {
+                $all = $this->db->get($from)->result_array();
+            } else if ($condition !== '') {
+                if($condition_type=='single'){
+                    $all = $this->db->get_where($from, array(
+                        $condition => $c_match
+                    ))->result_array();
+                }else if($condition_type=='multi'){
+                    $this->db->where_in($condition,$c_match);
+                    $all = $this->db->get($from)->result_array();
+                }
+            }
+
+            $return .= '<option value="">Choose one</option>';
+
+            foreach ($all as $row):
+                if ($type == 'add') {
+                    $return .= '<option value="' . $row[$from . '_id'] . '">' . $row[$field] . '</option>';
+                } else if ($type == 'edit') {
+                    $return .= '<option value="' . $row[$from . '_id'] . '" ';
+                    if ($multi == 'no') {
+                        if ($row[$from . '_id'] == $e_match) {
+                            $return .= 'selected=."selected"';
+                        }
+                    } else if ($multi == 'yes') {
+                        if (in_array($row[$from . '_id'], $e_match)) {
+                            $return .= 'selected=."selected"';
+                        }
+                    }
+                    $return .= '>' . $row[$field] . '</option>';
+                }
+            endforeach;
+        } else {
+            $all = $from;
+            $return .= '<option value="">Choose one</option>';
+            foreach ($all as $row):
+                if ($type == 'add') {
+                    $return .= '<option value="' . $row . '">';
+                    if ($condition == '') {
+                        $return .= ucfirst(str_replace('_', ' ', $row));
+                    } else {
+                        $return .= $this->Crud_model->get_type_name_by_id($condition, $row, $c_match);
+                    }
+                    $return .= '</option>';
+                } else if ($type == 'edit') {
+                    $return .= '<option value="' . $row . '" ';
+                    if ($row == $e_match) {
+                        $return .= 'selected=."selected"';
+                    }
+                    $return .= '>';
+
+                    if ($condition == '') {
+                        $return .= ucfirst(str_replace('_', ' ', $row));
+                    } else {
+                        $return .= $this->Crud_model->get_type_name_by_id($condition, $row, $c_match);
+                    }
+
+                    $return .= '</option>';
+                }
+            endforeach;
+        }
+        $return .= '</select>';
+        return $return;
+    }
     //CHECK IF PRODUCT EXISTS IN TABLE
     function exists_in_table($table, $field, $val)
     {
@@ -1456,4 +1539,67 @@ class Crud_model extends CI_Model
         }
         return false;
     }
+    public function SelectData($table, $data, $where) {
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->select($data);
+        $this->db->from($table);
+        return $this->db->get()->result();
+    }
+    public function SelectData_1($table, $data, $where) {
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->select($data);
+        $this->db->from($table);
+        return $this->db->get()->row();
+    }
+    public function SelectDataOrder($table, $data, $where,$by,$type) {
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->select($data);
+        $this->db->from($table);
+        $this->db->order_by($by,$type);
+        return $this->db->get()->result();
+    }
+    public function SelectDataOrder_1($table, $data, $where,$by,$type,$limit) {
+        if ($where) {
+            $this->db->where($where);
+        }
+        $this->db->select($data);
+        $this->db->from($table);
+        $this->db->order_by($by,$type);
+        $this->db->limit($limit);
+        return $this->db->get()->result();
+    }
+
+    public function SaveData($table, $data) {
+        if ($this->db->insert($table, $data))
+            return TRUE;
+
+        return FALSE;
+    }
+    
+
+    public function DeleteData($table, $where) {
+        if ($where) {
+            $this->db->where($where);
+        }
+        if ($this->db->delete($table)) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    public function UpdateData($table, $data, $where) {
+        $this->db->where($where);
+        if ($this->db->update($table, $data)) {
+            return TRUE;
+        } else
+            return FALSE;
+    }
+
 }

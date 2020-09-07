@@ -4,7 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php include_once 'includes/top/'.$top;?>
+    <?php 
+        include_once 'includes/top/'.$top;
+    ?>
+    
 
     <!-- Google Analytics -->
     <script>
@@ -61,10 +64,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 	<?php
-		include_once 'header/header.php';
-		include_once $page.'/index.php';
-		include_once 'footer/footer.php';
-		include_once 'includes/bottom/'.$bottom;
+        include_once 'header/header.php';       
+        include_once $page.'/index.php';
+        include_once 'footer/footer.php';
+        include_once 'includes/bottom/'.$bottom;
+
 	?>
 	<a href="#" class="btn-shadow back-to-top btn-back-to-top"></a>
 	<button class="open_modal" style="display: none"><?php echo translate('open')?></button>

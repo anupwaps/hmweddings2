@@ -18,7 +18,11 @@
                         include_once 'search.php';
                         include_once 'slider_2.php';
                     }
-                } elseif ($home_search_style == '1') {
+                } 
+                elseif ($home_search_style == '3') {
+                    include_once 'slider_3.php';
+                }
+                elseif ($home_search_style == '1') {
                     include_once 'slider.php';
                 }
             }
