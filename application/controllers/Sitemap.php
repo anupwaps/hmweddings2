@@ -17,16 +17,13 @@ class Sitemap extends CI_Controller {
     public function index()
 
     {
-
         $this->load->database();
-
-        $query = $this->db->get("happy_story");
-
-        $data['items'] = $query->result();
-
-
+        $data['happy_story'] = $this->db->get("happy_story")->result();
+        $data['language'] = $this->db->get("language")->result();
+        $data['currency_settings'] = $this->db->get("currency_settings")->result();
+        $data['plan'] = $this->db->get("plan")->result();
+        $data['member'] = $this->db->get("member")->result();
         $this->load->view('sitemap', $data);
-
     }
 
 }

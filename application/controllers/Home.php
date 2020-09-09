@@ -961,7 +961,11 @@ class Home extends CI_Controller {
         recache();
         $this->load->view('front/header/top_bar_right');
     }
-
+    function top_bar_right2() {
+        recache();
+        // $this->load->view('front/header/new_theme/log_stat.php');
+        $this->load->view('front/header/new_theme/log_stat2.php');
+    }
     function add_interest($member_id)
     {
         if ($this->member_permission() == FALSE) {

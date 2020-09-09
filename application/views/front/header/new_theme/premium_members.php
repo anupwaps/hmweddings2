@@ -12,7 +12,7 @@
       <div class="row">
       <?php foreach ($premium_members as $premium_member): ?>
         <div class="col-md-4 col-sm-4">
-          <div class="well-box feature-block text-center" data-toggle="modal" data-target="#loginModal">
+          <div class="well-box feature-block text-center" >
             <div class="member-ship">
             <?php
                 $image = json_decode($premium_member->profile_image, true);
@@ -78,3 +78,39 @@
     </div>
   </div>
 </div>
+
+<script>
+    var isloggedin = "<?=$this->session->userdata('member_id')?>";
+
+    $(document).ready(function() {
+        setTimeout(function() {
+            set_premium_member_box_height();
+        }, 1000);
+    });
+
+    function set_premium_member_box_height() {
+        var max_title = 0;
+        $('.swiper-slide .premium_heading').each(function() {
+            var current_height = parseInt($(this).css('height'));
+            if (current_height >= max_title) {
+                max_title = current_height;
+            }
+        });
+        $('.swiper-slide .premium_heading').css('height', max_title);
+    }
+
+    function goto_profile(id) {
+        // alert(id);
+        
+        if (isloggedin == "") {
+          $("#loginModal").modal();
+            // $("#active_modal").modal("toggle");
+            // $("#modal_header").html("<?=translate('please_login')?>");
+            // $("#modal_body").html("<p class='text-center'><?=translate('please_login_to_view_full_profile_of_this_member')?></p>");
+            // $("#modal_buttons").html("<button type='button' class='btn btn-danger btn-sm btn-shadow' data-dismiss='modal' style='width:25%'><?=translate('close')?></button> <a href='<?=base_url()?>home/login' class='btn btn-sm btn-base-1 btn-shadow' style='width:25%'><?=translate('login')?></a>");
+        }
+        else {
+            window.location.href = "<?=base_url()?>home/member_profile/"+id;
+        }
+    }
+</script>
