@@ -35,7 +35,7 @@
             ?>
             
             <div class="real-wedding-info well-box text-center">
-              <h2 class="real-wedding-title"><a href="#" class="title ng-binding">Sunil and Khushboo</a></h2>
+              <h2 class="real-wedding-title"><a href="#" class="title ng-binding"><?=$happy_storie->title?></a></h2>
               <p class="story-msg ng-binding"><?=substr($happy_storie->title,0,23)?><?php if(strlen($happy_storie->title) > 23){echo '..';}?></p>
             </div>           
             <a href="<?=base_url()?>home/stories/story_detail/<?=$happy_storie->happy_story_id?>" class="btn btn-primary btn-block bor-r0 ripplelink">Read more</a>

@@ -27,17 +27,20 @@
   </ul>
   <div class="side-feedback">
     <h3>Give Us Your Feedback</h3>
-    <p> Need any help? Write to us at <a href="mailto:support@weddings.com">support@weddings.com</a><br>
+    <p> Need any help? Write to us at <a href="mailto:<?= $this->system_email;?>"><?=$this->system_email;?></a><br>
      Call :
-		  <a href="tel:+91-123234567">+91-12334567</a> 
-		       (India)</p>
+     <?php $phone_contact = $this->db->get_where('general_settings', array('type' => 'phone'))->row()->value; 
+     ?>
+		  <a href="tel:<?=$phone_contact;?>"><?=$phone_contact;?></a> 
+		       (Bangladesh)</p>
     <h3>Follow us</h3>
     <ul class="list-inline side-social">
-      <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-      <li><a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li>
-      <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+      <?php
+          $social_links = $this->db->get('social_links')->result();
+          foreach($social_links as $sl){
+      ?>      	      
+        <li> <a href="<?= $sl->value;?>" target="_blank"><i class="<?= $sl->icon;?>"></i></a></li>
+      <?php } ?>
     </ul>
   </div>
 </nav>

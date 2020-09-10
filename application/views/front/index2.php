@@ -6,8 +6,7 @@
 body.modal-open {position:static !important; overflow:visible; padding:0 !important;}
 </style>
 <div class="slider-bg">
-  <div class="logo-area">
-    <!-- <a href="index.html"><img src="<?=base_url()?>template/assets/images/logo-new.png"></a> -->
+  <!-- <div class="logo-area">
     
     <a href="<?=base_url()?>home/">
     <?php
@@ -25,7 +24,7 @@ body.modal-open {position:static !important; overflow:visible; padding:0 !import
         }
     ?>
     </a>
-  </div>
+  </div> -->
   <!-- Banner start-->  
 
 
@@ -374,176 +373,11 @@ body.modal-open {position:static !important; overflow:visible; padding:0 !import
 
  
  </section>
-<section class="footer">
-    <div class="container footer-two">
-    <div class="col-md-12 col-sm-12">
-        <div class="col-md-2 col-sm-6 col-xs-6">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#"><i class="fa fa-check"></i> About Us</a></li>
-				      <li><a href="#"><i class="fa fa-check"></i> Success Stories</a></li>
-              <li><a href="#" target="_blank"><i class="fa fa-check"></i> Blogs</a></li>
-				      <li><a href="#" target="_blank"><i class="fa fa-check"></i> Media & PR</a></li>
-				      <li><a href="#" target="_blank"><i class="fa fa-check"></i> Careers</a></li>
-            </ul>
-        </div>
-        <div class="col-md-2 col-sm-6 col-xs-6">
-            <h4>Help &amp; Support</h4>
-            <ul>
-                <li><a href="#"><i class="fa fa-check"></i> Live Support</a></li>
-                <li><a href="#"><i class="fa fa-check"></i> Online Help - FAQ</a></li>
-                <li><a href="#"><i class="fa fa-check"></i> Contact us</a></li>
-                <li><a href="#"><i class="fa fa-check"></i> Sitemap</a></li>
-				 <li><a href="#">&nbsp;</a></li> 
-           </ul>
-        </div>
-        <div class="col-md-2 col-sm-6 col-xs-6">
-            <h4>Policies</h4>
-            <ul>
-                <li><a href="#"><i class="fa fa-check"></i> Privacy Policy</a></li>
-                <li><a href="#"><i class="fa fa-check"></i> Terms of Use</a></li>
-                <li><a href="#"><i class="fa fa-check"></i> Disclaimer</a></li>
-                <li><a href="#"><i class="fa fa-check"></i> Payment Policy</a></li>
-            </ul>
-        </div>
-		<div class="col-md-2 col-sm-6 col-xs-6">
-        <h4>Our other Services</h4>
-        <ul>
-          <li><a href="#"><button type="button" class="btn btn-Analysis">HM Weddings <br><span>Harmony</span></button></a></li>
-		      <!-- <li><a href="#" target="_blank"><button type="button" style="line-height: 15px; background:#1a38b4;" class="btn btn-Analysis"><span style="font-size: 12px; text-transform: none;">PlanYourVivah.com</span><br><i style="font-size: 9px;">Wedding Venues and Vendors</i></button></a></li> -->
-        </ul>
-      </div>
-	  <style type="text/css">
-	  .btn-Analysis {
-			color: #fff;
-			background-color: #1a38b4;
-			border-color: #1a38b4;
-			border-radius:5px;
-			text-transform:none;
-			font-weight:normal;
-			text-align:left;
-			font-size:14px;
-			border: #fff solid 1px;
-			padding-left:10px;
-			margin-bottom:20px;
-		}
-		 .btn-Analysis span{
-			 font-size:15px;
-			 font-weight:600;
-			 text-transform:uppercase;
-			 }
-	 .btn-Analysis:hover {
-			color: #fff;
-			background-color: #900a3b;
-			border-color: #900a3b;
-		}
-	  </style>
-        <div class="col-md-2 col-sm-6 col-xs-6">
-            <h4>Follow Us</h4>
-         <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">      	      
-	      <li> <a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li> <a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>   
-	      <li> <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li> 
-	      <li> <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a></li> 
-          <li> <a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li> 
-	  	</ul>
-        <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">
-        <h4>App Available on</h4>      	      
-	      <li> <a href="#" target="_blank"><i class="fa fa-android"></i></a></li>
-          <li> <a href="#" target="_blank"><i class="fa fa-apple"></i></a></li>
-	  	</ul>
-        </div>
-		<div class="col-md-2 col-sm-6 col-xs-6">           
-        <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">          
-          <li>
-	   <!-- <div class="right new-norton">
-		<table style="float:left;" border="0" cellpadding="2" cellspacing="0">
-		<tbody>
-		<tr>
-		<td align="center" valign="top">
-		<script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=www.lovevivah.com&amp;size=M&amp;use_flash=NO&amp;use_transparent=NO&amp;lang=en"></script>
-		<map name="sealmap_medium" id="sealmap_medium"><area alt="Click to Verify - This site has chosen an SSL Certificate to improve Web site security" title="" href="javascript:vrsn_splash()" shape="rect" coords="0,0,115,58" tabindex="-1" style="outline:none;"><area alt="Click to Verify - This site has chosen an SSL Certificate to improve Web site security" title="" href="javascript:vrsn_splash()" shape="rect" coords="0,58,63,81" tabindex="-1" style="outline:none;"><area alt="" title="" href="javascript:symcBuySSL()" shape="rect" coords="63,58,115,81" style="outline:none;"></map><br>
-		<a href="https://www.symantec.com/verisign/ssl-certificates" target="_blank" style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;">ABOUT SSL CERTIFICATES</a></td>
-		</tr>
-		</tbody></table>
-		</div> --> 
-		</li>
-	  	</ul>
-        </div>
-      </div> 
-    </div>
-  </section>
- 
- <footer class="tiny-footer"><span>Copyrights 2020, hmweddings.com. All Rights Reserved</span></footer>
+ <?php include_once 'header/new_theme/footer_section.php';  ?>
  <script type="text/javascript" src="<?=base_url()?>template/assets/js/bootstrap/bootstrap.min.js" ></script> 
  <script src="<?=base_url()?>template/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
  <script  type="text/javascript" src="<?=base_url()?>template/assets/app/HomeApp7893.js?v=24"></script>  
- <!-- Login Modal -->
-<div id="loginModal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-body"> <a href="javascript:void(0);" class="loginclose" data-dismiss="modal">&times;</a>
-	    <div class="login-form-section">
-          <h2>Login to your account</h2>
-          <p>And begin a beautiful journey</p>
-		  <form method="post" name="loginfrm" id="loginfrm" action="<?=base_url()?>home/check_login">
-           <div class="form-group mt-10">
-            <div class="">
-              <input type="email" name="email" id="loginEmail" class="common-input" placeholder="Email Address">
-              <!--<small class="lv-alert alert-danger">Please enter a valid email address</small> --></div>
-          </div>
-          <div class="form-group">
-            <div class="">
-              <input type="password" name="password" id="loginPass" class="common-input" placeholder="Password">
-           <!--   <small class="lv-alert alert-danger">Wrong password. Try again.</small> --></div>
-          </div>
-          <div class="form-group">
-            <div class="">
-              <button type="submit" id="LoginBTN" class="btn btn-lg btn-primary btn-block ripplelink">LOGIN</button>
-            </div>
-          </div>
-		  </form>
-          <div class="login-forgot-link">
-            <ul class="list-inline">
-              <li><a href="#">Forgot Password ?</a></li>
-              <li><a href="#">Resend Activation Email</a></li>
-              <li><a href="#">Help</a></li>
-            </ul>
-          </div>
-          <div class="login-or-register"><span class="_43mh">OR</span></div>
-          <div class="login-register-section">
-            <p>Don't have an account?</p>
-            <div class="form-group">
-              <div class="">
-                <a href="javascript:void('0')" data-toggle="modal"  id="registerBTN" onclick="openregisterModal()" class="btn btn-lg btn-blue btn-block ripplelink"> REGISTER FREE</a>
-              </div>
-            </div>
-          </div>
-        </div>		
-      </div>
-    </div>
-  </div>
-</div><div class="modal fade modal-fullscreen  footer-to-bottom" id="myModalFullscreen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog animated fadeInUp">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" id= 'Mobile_PopUp_Close' data-dismiss="modal" aria-hidden="true"><i class="fa fa-close"></i></button>
-          </div>
-           
-            <div class="modal-footer">
-			<p class="download-line1">Download our App</p>
-                 <p class="download-line2">and search your life partner </p>
-                 <p class="download-line3">on the go</p>
-            <div class="mobile-screen"> <img src="<?=base_url()?>template/assets/images/downloadapp.png" class="download-mobile-img"  alt=""/></div>
-            <div class="download-buttons">
-             <button type="button" class="btn btn-theme border-r100 download-mobile" id=""><i class="fa fa-apple" id ="apple-link"></i> <i class="fa fa-android" id ="android-link"></i> DOWNLOAD NOW</button>
-            </div>
-                <span class="mobile-or">OR</span>
-                <a href="#" class="skiptocon" id= 'Mobile_PopUp_Continue' class="close" data-dismiss="modal"> Continue to Mobile Site</a>
-            </div>
-        </div>        
-    </div>   
-</div>
+ <?php include_once 'header/new_theme/modal.php';  ?>
   <!-- <script type="text/javascript">
     $(window).on('load',function(){
 	 var IOS     = navigator.userAgent.match(/(\(iPod|\(iPhone|\(iPad)/);

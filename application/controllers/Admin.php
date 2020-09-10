@@ -3667,29 +3667,35 @@ class Admin extends CI_Controller {
 				redirect(base_url().'admin/general_settings', 'refresh');
 			}
 			elseif ($para1=="update_social_links") {
-				$data1['value'] = $this->input->post('facebook');
-				$this->db->where('type', 'facebook');
-				$this->db->update('social_links', $data1);
+				// $data1['value'] = $this->input->post('facebook');
+				// $this->db->where('type', 'facebook');
+				// $this->db->update('social_links', $data1);
 
-				$data2['value'] = $this->input->post('google-plus');
-				$this->db->where('type', 'google-plus');
-				$this->db->update('social_links', $data2);
+				// $data2['value'] = $this->input->post('google-plus');
+				// $this->db->where('type', 'google-plus');
+				// $this->db->update('social_links', $data2);
 
-				$data3['value'] = $this->input->post('twitter');
-				$this->db->where('type', 'twitter');
-				$this->db->update('social_links', $data3);
+				// $data3['value'] = $this->input->post('twitter');
+				// $this->db->where('type', 'twitter');
+				// $this->db->update('social_links', $data3);
 
-				$data4['value'] = $this->input->post('pinterest');
-				$this->db->where('type', 'pinterest');
-				$this->db->update('social_links', $data4);
+				// $data4['value'] = $this->input->post('pinterest');
+				// $this->db->where('type', 'pinterest');
+				// $this->db->update('social_links', $data4);
 
-				$data5['value'] = $this->input->post('skype');
-				$this->db->where('type', 'skype');
-				$this->db->update('social_links', $data5);
+				// $data5['value'] = $this->input->post('skype');
+				// $this->db->where('type', 'skype');
+				// $this->db->update('social_links', $data5);
 
-				$data5['value'] = $this->input->post('youtube');
-				$this->db->where('type', 'youtube');
-				$this->db->update('social_links', $data5);
+				// $data5['value'] = $this->input->post('youtube');
+				// $this->db->where('type', 'youtube');
+				$data5 = $this->input->post();
+				foreach($data5 as $key => $value){
+					// var_dump($key, $value);
+					$data4['value'] = $value;
+					$this->db->where('type', $key);
+					$this->db->update('social_links', $data4);
+					}
 				recache();
 
 				$this->session->set_flashdata('alert', 'edit');
