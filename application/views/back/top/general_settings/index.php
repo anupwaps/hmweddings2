@@ -26,4 +26,3 @@
 <link href="<?=base_url()?>template/back/plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
 <!--Text Editor [ OPTIONAL ]-->
 <link href="<?=base_url()?>template/back/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet">
-

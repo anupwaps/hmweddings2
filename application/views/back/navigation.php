@@ -83,6 +83,13 @@
 							<span class="menu-title"><?php echo translate('general_settings')?></span>
 						</a>
 					</li>
+					<?php } if ($this->Crud_model->admin_permission('general_settings')){ ?>
+					<li <?php if($page_name=="extra_settings"){ ?> class="active-link" <?php } ?>>
+						<a href="<?=base_url()?>admin/extra_settings">
+							<i class="fa fa-cog"></i>
+							<span class="menu-title"><?php echo translate('extra_settings')?></span>
+						</a>
+					</li>
 					<?php } if ($this->Crud_model->admin_permission('frontend_settings')){?>
 					<li <?php if($page_name=="header"||$page_name=="pages"||$page_name=="footer"||$page_name=="theme_color_settings"){ ?> class="active-sub active" <?php } ?>>
 						<a href="#">

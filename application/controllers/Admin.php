@@ -3724,6 +3724,62 @@ class Admin extends CI_Controller {
 			}
 		}
 	}
+	function extra_settings($para1="")
+	{
+		if ($this->admin_permission() == FALSE) {
+        	redirect(base_url().'admin/login', 'refresh');
+		}
+		else{
+			if ($para1=="") {
+				$page_data['title'] = "Admin || ".$this->system_title;
+				$page_data['top'] = "general_settings/index.php";
+				$page_data['folder'] = "extra_settings";
+				$page_data['file'] = "index.php";
+				$page_data['bottom'] = "general_settings/index.php";
+				$page_data['page_name'] = "extra_settings";
+				$page_data['extra_page'] = $this->Crud_model->SelectData('extra_settings', '', '');
+				if ($this->session->flashdata('alert') == "edit") {
+					$page_data['success_alert'] = translate("you_have_successfully_edited_the_settings!");
+				}
+				$this->load->view('back/index', $page_data);
+			}
+			elseif ($para1=="add_extra_page") {
+				$data = $this->input->post();
+				$config['upload_path'] = './uploads/page_cover/';
+				$config['allowed_types'] = 'gif|jpg|png|mp4|jpeg';
+				$config['encrypt_name'] = TRUE;
+				$config['max_size'] = 100000000;
+				$config['max_width'] = 10240000;
+				$config['max_height'] = 7680000;
+				$this->load->library('upload', $config);
+
+
+				$this->load->library('image_lib');
+				$config_1['image_library'] = 'gd2';
+				$config_1['create_thumb'] = FALSE;
+				$config_1['maintain_ratio'] = FALSE;
+				$config_1['width']         = 1920;
+				$config_1['height']       = 1280;
+
+				if (!$this->upload->do_upload('page_cover')) {
+					$error = array('error' => $this->upload->display_errors());
+				} else {
+					$data2 = array('upload_data' => $this->upload->data());
+					$data['page_cover'] = $data2['upload_data']['file_name'];
+					$config_1['source_image'] = 'uploads/page_cover/'.$data2['upload_data']['file_name'];
+					$this->image_lib->initialize($config_1); 
+					$this->image_lib->resize();
+				}
+				$this->Crud_model->SaveData('extra_settings', $data);
+				recache();
+
+				$this->session->set_flashdata('alert', 'edit');
+
+				redirect(base_url().'admin/extra_settings', 'refresh');
+			}
+			
+		}
+	}
 
 	function frontend_appearances($para1="")
 	{

@@ -20,3 +20,6 @@
 <script src="<?=base_url()?>template/back/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 <!--Text Editor [ SAMPLE ]-->
 <script src="<?=base_url()?>template/back/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!--Text Editor [ Ckeditor ]-->
+<script src="<?=base_url()?>template/back/plugins/ckeditor/ckeditor.js"></script>
+

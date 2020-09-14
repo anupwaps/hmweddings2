@@ -326,7 +326,7 @@
 						       	</a>
 					       	</div>
 					       	<div class="col-md-3">
-							    <a href="https://activeitzone.com/product/active-matrimonial-cms/knowledge-base/diagramic-analytics" target="_blank">
+							    <a href="#" target="_blank">
 							        <div class="panel media middle pad-all">
 							            <div class="media-left">
 							                <span class="icon-wrap icon-wrap-sm icon-circle bg-danger">
@@ -342,7 +342,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-3">
-							    <a href="https://activeitzone.com/product/active-matrimonial-cms/knowledge-base/how-to" target="_blank">
+							    <a href="#" target="_blank">
 							        <div class="panel media middle pad-all">
 							            <div class="media-left">
 							                <span class="icon-wrap icon-wrap-sm icon-circle bg-warning">
@@ -356,7 +356,7 @@
 							    </a>
 							</div>
 							<div class="col-md-3">
-						       	<a href="https://activeitzone.com/product/active-matrimonial-cms/knowledge-base/structure-list" target="_blank">
+						       	<a href="#" target="_blank">
 							        <div class="panel media middle pad-all">
 							            <div class="media-left">
 							                <span class="icon-wrap icon-wrap-sm icon-circle bg-success">
