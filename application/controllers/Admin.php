@@ -3629,6 +3629,14 @@ class Admin extends CI_Controller {
 				$data7['value'] = $this->input->post('phone');
 				$this->db->where('type', 'phone');
 				$this->db->update('general_settings', $data7);
+
+				$data8['value'] = $this->input->post('android_link');
+				$this->db->where('type', 'android_link');
+				$this->db->update('general_settings', $data8);
+
+				$data9['value'] = $this->input->post('ios_link');
+				$this->db->where('type', 'ios_link');
+				$this->db->update('general_settings', $data9);
 				recache();
 
 				$this->session->set_flashdata('alert', 'edit');
@@ -3667,34 +3675,13 @@ class Admin extends CI_Controller {
 				redirect(base_url().'admin/general_settings', 'refresh');
 			}
 			elseif ($para1=="update_social_links") {
-				// $data1['value'] = $this->input->post('facebook');
-				// $this->db->where('type', 'facebook');
-				// $this->db->update('social_links', $data1);
-
-				// $data2['value'] = $this->input->post('google-plus');
-				// $this->db->where('type', 'google-plus');
-				// $this->db->update('social_links', $data2);
-
-				// $data3['value'] = $this->input->post('twitter');
-				// $this->db->where('type', 'twitter');
-				// $this->db->update('social_links', $data3);
-
-				// $data4['value'] = $this->input->post('pinterest');
-				// $this->db->where('type', 'pinterest');
-				// $this->db->update('social_links', $data4);
-
-				// $data5['value'] = $this->input->post('skype');
-				// $this->db->where('type', 'skype');
-				// $this->db->update('social_links', $data5);
-
-				// $data5['value'] = $this->input->post('youtube');
-				// $this->db->where('type', 'youtube');
 				$data5 = $this->input->post();
 				foreach($data5 as $key => $value){
 					// var_dump($key, $value);
 					$data4['value'] = $value;
 					$this->db->where('type', $key);
 					$this->db->update('social_links', $data4);
+					
 					}
 				recache();
 
@@ -3719,6 +3706,48 @@ class Admin extends CI_Controller {
 				recache();
 
 				$this->session->set_flashdata('alert', 'edit');
+
+				redirect(base_url().'admin/general_settings', 'refresh');
+			}
+			elseif ($para1=="update_location") {
+				$data['value'] = $this->input->post('location_map');
+				$this->db->where('type', 'location_map');
+				$this->db->update('general_settings', $data);
+				recache();
+
+				$this->session->set_flashdata('alert', 'edit');
+
+				redirect(base_url().'admin/general_settings', 'refresh');
+			}
+			elseif ($para1=="add_social_links") {
+				$data = $this->input->post();
+				$config['upload_path'] = './uploads/social_image/';
+				$config['allowed_types'] = 'gif|jpg|png|mp4|jpeg';
+				$config['encrypt_name'] = TRUE;
+				$config['max_size'] = 0;
+				$config['max_width'] = 0;
+				$config['max_height'] = 0;
+				$this->load->library('upload', $config);
+
+
+				$this->load->library('image_lib');
+				$config_1['image_library'] = 'gd2';
+				$config_1['create_thumb'] = FALSE;
+				$config_1['maintain_ratio'] = FALSE;
+				$config_1['width']         = 36;
+				$config_1['height']       = 36;
+
+				if (!$this->upload->do_upload('social_image')) {
+					$error = array('error' => $this->upload->display_errors());
+				} else {
+					$data2 = array('upload_data' => $this->upload->data());
+					$data['social_image'] = $data2['upload_data']['file_name'];
+					$config_1['source_image'] = 'uploads/social_image/'.$data2['upload_data']['file_name'];
+					$this->image_lib->initialize($config_1); 
+					$this->image_lib->resize();
+				}
+				$this->Crud_model->SaveData('social_links', $data);
+				recache();
 
 				redirect(base_url().'admin/general_settings', 'refresh');
 			}
@@ -3748,9 +3777,9 @@ class Admin extends CI_Controller {
 				$config['upload_path'] = './uploads/page_cover/';
 				$config['allowed_types'] = 'gif|jpg|png|mp4|jpeg';
 				$config['encrypt_name'] = TRUE;
-				$config['max_size'] = 100000000;
-				$config['max_width'] = 10240000;
-				$config['max_height'] = 7680000;
+				$config['max_size'] = 0;
+				$config['max_width'] = 0;
+				$config['max_height'] = 0;
 				$this->load->library('upload', $config);
 
 
@@ -3758,8 +3787,8 @@ class Admin extends CI_Controller {
 				$config_1['image_library'] = 'gd2';
 				$config_1['create_thumb'] = FALSE;
 				$config_1['maintain_ratio'] = FALSE;
-				$config_1['width']         = 1920;
-				$config_1['height']       = 1280;
+				$config_1['width']         = 1860;
+				$config_1['height']       = 400;
 
 				if (!$this->upload->do_upload('page_cover')) {
 					$error = array('error' => $this->upload->display_errors());
@@ -3777,6 +3806,69 @@ class Admin extends CI_Controller {
 
 				redirect(base_url().'admin/extra_settings', 'refresh');
 			}
+			
+		}
+	}
+	function update_extra_settings($id, $para1="")
+	{
+		if ($this->admin_permission() == FALSE) {
+        	redirect(base_url().'admin/login', 'refresh');
+		}
+		else{
+			if ($id && $para1=="") {
+				$page_data['title'] = "Admin || ".$this->system_title;
+				$page_data['top'] = "general_settings/index.php";
+				$page_data['folder'] = "extra_settings";
+				$page_data['file'] = "index.php";
+				$page_data['bottom'] = "general_settings/index.php";
+				$page_data['page_name'] = "extra_settings";
+				$page_data['extra_page'] = $this->Crud_model->SelectData('extra_settings', '*', '');
+				$page_data['ep'] = $this->Crud_model->SelectData_1('extra_settings', '*', array('extra_page_id '=>$id));
+				if ($this->session->flashdata('alert') == "edit") {
+					$page_data['success_alert'] = translate("you_have_successfully_edited_the_settings!");
+				}
+				$this->load->view('back/index', $page_data);
+			}
+			elseif ($id && $para1=="update") {
+				$data = $this->input->post();
+				$config['upload_path'] = './uploads/page_cover/';
+				$config['allowed_types'] = 'gif|jpg|png|mp4|jpeg';
+				$config['encrypt_name'] = TRUE;
+				$config['max_size'] = 0;
+				$config['max_width'] = 0;
+				$config['max_height'] = 0;
+				$this->load->library('upload', $config);
+
+
+				$this->load->library('image_lib');
+				$config_1['image_library'] = 'gd2';
+				$config_1['create_thumb'] = FALSE;
+				$config_1['maintain_ratio'] = FALSE;
+				$config_1['width']         = 1860;
+				$config_1['height']       = 400;
+				
+				if (!$this->upload->do_upload('page_cover')) {
+					$error = array('error' => $this->upload->display_errors());
+				} else {
+					$data2 = array('upload_data' => $this->upload->data());
+					$data['page_cover'] = $data2['upload_data']['file_name'];
+					$config_1['source_image'] = 'uploads/page_cover/'.$data2['upload_data']['file_name'];
+					$this->image_lib->initialize($config_1); 
+					$this->image_lib->resize();
+				    $qq = $this->Crud_model->SelectData_1('extra_settings', '*', array('extra_page_id'=>$id));
+					if($qq->page_cover!=''){
+						unlink('uploads/page_cover/'.$qq->page_cover);
+					}
+				}
+				$this->Crud_model->UpdateData('extra_settings', $data, array('extra_page_id' => $id) );
+				recache();
+
+				$this->session->set_flashdata('alert', 'edit');
+
+				redirect(base_url().'admin/update_extra_settings/'.$id, 'refresh');
+			}
+
+
 			
 		}
 	}

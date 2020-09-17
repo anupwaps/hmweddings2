@@ -54,6 +54,9 @@
 		                <li>
 		                    <a data-toggle="tab" href="#demo-stk-lft-tab-5"><?php echo translate('privacy_policy')?></a>
 		                </li>
+		                <li>
+		                    <a data-toggle="tab" href="#demo-stk-lft-tab-6"><?php echo translate('location_map')?></a>
+		                </li>
 		            </ul>
 		
 		            <!--Tabs Content-->
@@ -72,6 +75,9 @@
 		                </div>
 		                <div id="demo-stk-lft-tab-5" class="tab-pane fade">
 		                    <?php include_once "privacy_policy.php";?>
+		                </div>
+		                <div id="demo-stk-lft-tab-6" class="tab-pane fade">
+		                    <?php include_once "location_map.php";?>
 		                </div>
 		            </div>
 		        </div>

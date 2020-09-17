@@ -33,6 +33,18 @@
 		</div>
 	</div>
 	<div class="form-group">
+		<label class="col-sm-3 control-label" for="android_link"><b><?php echo translate('android_link')?></b></label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" name="android_link" value="<?=$this->Crud_model->get_type_name_by_id('general_settings', '88', 'value')?>" placeholder="Android Link">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label" for="ios_link"><b><?php echo translate('ios_link')?></b></label>
+		<div class="col-sm-8">
+			<input type="text" class="form-control" name="ios_link" value="<?=$this->Crud_model->get_type_name_by_id('general_settings', '89', 'value')?>" placeholder="Ios Link">
+		</div>
+	</div>
+	<div class="form-group">
 		<label class="col-sm-3 control-label" for="cache_time"><b><?php echo translate('homepage_cache_time'); ?> (<?php echo translate('minutes'); ?>)</b></label>
 		<div class="col-sm-6">
 			<input type="number" min="0" step=".01" class="form-control" name="cache_time" value="<?=$this->Crud_model->get_type_name_by_id('general_settings', '59', 'value')?>">

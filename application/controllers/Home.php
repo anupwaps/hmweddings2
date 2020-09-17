@@ -76,7 +76,7 @@ class Home extends CI_Controller {
         $page_data['all_plans'] = $this->db->get("plan")->result();
         $home_search_style = $this->db->get_where('frontend_settings', array('type' => 'home_search_style'))->row()->value;
         if ($home_search_style == '3') {
-            $this->load->view('front/index2', $page_data);
+            $this->load->view('front/index3', $page_data);
         }else{
             $this->load->view('front/index', $page_data);
         }

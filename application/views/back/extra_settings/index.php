@@ -5,7 +5,7 @@
 		<!--Page Title-->
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<div id="page-title">
-			<h1 class="page-header text-overflow"><?php echo translate('general_settings')?></h1>
+			<h1 class="page-header text-overflow"><?php echo translate('extra_settings')?></h1>
 
 		</div>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -14,7 +14,7 @@
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<ol class="breadcrumb">
 			<li><a href="#"><?php echo translate('home')?></a></li>
-			<li class="active"><a href="#"><?php echo translate('general_settings')?></a></li>
+			<li class="active"><a href="<?=base_url().'admin/extra_settings/' ?>"><?php echo translate('extra_settings')?></a></li>
 		</ol>
 		<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 		<!--End breadcrumb-->
@@ -31,6 +31,10 @@
 	                <?=$success_alert?>
 	            </div>
 			<?php endif ?>
+			<?php $d = $this->uri->segment(2);?>
+			<?php if ($d == 'update_extra_settings'){?>
+				<?php include_once "extra_page_update.php"?>
+			<?php } else {?>
 			<div class="panel-heading">
 				<h3 class="panel-title"><?php echo translate('manage_settings')?></h3>
 			</div>
@@ -44,7 +48,7 @@
 		                </li>
 						<?php $i = 1; foreach($extra_page as $ep){ $i++;?>
 		                <li>
-		                    <a data-toggle="tab" href="#demo-stk-lft-tab-<?= $i?>" onClick=passid('<?= $ep->extra_page_id; ?>')><?php echo translate($ep->page_name);?></a>
+		                    <a href="<?=base_url().'admin/update_extra_settings/'.$ep->extra_page_id ?>"><?php echo translate($ep->page_name);?></a>
 		                </li>
 						<?php }?>
 		            </ul>
@@ -54,15 +58,16 @@
 		                <div id="demo-stk-lft-tab-1" class="tab-pane fade active in">
 		                    <?php include_once "general_settings.php";?>
 		                </div>
-						<?php $i = 1; foreach($extra_page as $ep){ $i++;?>
+						<!-- <?php $i = 1; foreach($extra_page as $ep){ $i++;?>
 						<div id="demo-stk-lft-tab-<?= $i;?>" class="tab-pane fade">
-		                    <?php include_once "privacy_policy.php";?>
+							<?php include_once "privacy_policy.php"?>
 		                </div>
-						<?php }?>
+						<?php }?> -->
 		            </div>
 		        </div>
 
 			</div>
+			<?php }?>
 		</div>
 	</div>
 </div>

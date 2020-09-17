@@ -70,7 +70,13 @@
             $social_links = $this->db->get('social_links')->result();
             foreach($social_links as $sl){
         ?>      	      
-	      <li> <a href="<?= $sl->value;?>" target="_blank"><i class="<?= $sl->icon;?>"></i></a></li>
+	      <li> <a href="<?= $sl->value;?>" target="_blank">
+            <?php if($sl->icon){?>
+                <i class="<?= $sl->icon;?>"></i>
+            <?php } else{?>
+                <img src="<?= base_url().'uploads/social_image/'.$sl->social_image?>">
+            <?php }?>
+          </a></li>
         <?php } ?>
 	  	</ul>
         <ul class="social-icons icon-circle icon-zoom list-unstyled list-inline">
